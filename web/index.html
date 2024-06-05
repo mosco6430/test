@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Información del Servidor</title>
+</head>
+<body>
+    <h1>Información del Servidor Web</h1>
+    <h2>1. Instalación del Servidor Web</h2>
+    <p>
+        Para instalar el servidor web Apache en una instancia de Amazon Linux, se siguieron los siguientes pasos:
+        <ol>
+            <li>Actualización del sistema:
+                <pre>sudo yum update -y</pre>
+            </li>
+            <li>Instalación de Apache:
+                <pre>sudo yum install httpd -y</pre>
+            </li>
+            <li>Inicio del servicio de Apache:
+                <pre>sudo systemctl start httpd</pre>
+            </li>
+            <li>Configuración para iniciar Apache automáticamente al arrancar el sistema:
+                <pre>sudo systemctl enable httpd</pre>
+            </li>
+            <li>Cambio del puerto de escucha de Apache a 8088:
+                <pre>Editando el archivo /etc/httpd/conf/httpd.conf y cambiando la línea Listen 80 a Listen 8088</pre>
+            </li>
+            <li>Reinicio de Apache para aplicar los cambios:
+                <pre>sudo systemctl restart httpd</pre>
+            </li>
+        </ol>
+        Inconvenientes encontrados: Ninguno significativo, solo se requirió abrir el puerto 8088 en las reglas de seguridad de AWS.
+    </p>
+
+    <h2>2. Información de la Máquina</h2>
+    <p>
+        <b>Sistema Operativo:</b>
+        <pre>$(cat /etc/os-release | grep PRETTY_NAME)</pre>
+    </p>
+    <p>
+        <b>Espacio en Disco:</b>
+        <pre>$(df -h)</pre>
+    </p>
+    <p>
+        <b>Cantidad de memoria RAM:</b>
+        <pre>$(free -h)</pre>
+    </p>
+    <p>
+        <b>Versión del kernel de Linux:</b>
+        <pre>$(uname -r)</pre>
+    </p>
+    <p>
+        <b>Características de la CPU:</b>
+        <pre>$(lscpu)</pre>
+    </p>
+    <p>
+        <b>IP Privada:</b>
+        <pre>$(hostname -I)</pre>
+    </p>
+</body>
+</html>
+
